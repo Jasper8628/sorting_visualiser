@@ -5,10 +5,10 @@ function Index() {
     const newArray = []
     const [diplay, setDisplay] = useState(newArray);
 
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 400; i++) {
         newArray[i] =
         {
-            value: Math.floor(Math.random() * 350),
+            value: Math.floor(Math.random() * 400),
             index: i
         }
     }
@@ -16,8 +16,6 @@ function Index() {
         mergeSort(newArray);
 
     }
-
-
     const mergeSort = (array) => {
         if (array.length < 2) {
             return array;
@@ -34,32 +32,31 @@ function Index() {
         const end = right[right.length - 1].index;
         while (left.length !== 0 && right.length !== 0) {
             if (left[0].value < right[0].value) {
-                left[0].color="red"
                 buffer.push(left.shift())
             } else {
-                right[0].color="red"
                 buffer.push(right.shift())
             }
         }
         while (left.length !== 0) {
-            left[0].color="red"
             buffer.push(left.shift())
         }
         while (right.length !== 0) {
-            right[0].color="red"
             buffer.push(right.shift())
         }
         for (let i = start, j = 0; i < end, j < buffer.length; j++, i++) {
+            let colorDiv=document.getElementById(`${buffer[j].index}`)
+            setTimeout(() => {
+                colorDiv.style.backgroundColor='magenta'
+                setTimeout(() => {
+                    colorDiv.style.backgroundColor='aqua'
+                }, 50);
+            }, j*50);
             buffer[j].index = i;
             let barDiv = document.getElementById(`${i}`);
             let height = buffer[j].value;
             setTimeout(() => {
                 barDiv.style.height = `${height}px`;
-                barDiv.style.backgroundColor = "red"
-                setTimeout(() => {
-                    barDiv.style.backgroundColor = "aqua"
-                },100);
-            }, j *100);
+            }, j * 50);
         }
         newArray.splice(start, buffer.length, ...buffer);
         return buffer;

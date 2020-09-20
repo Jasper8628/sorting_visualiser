@@ -1,11 +1,11 @@
 .bar{
-    width: 10px;
+    width: 5px;
     margin-left: 1.5px;
     background-color: aqua;
 }
 .display-field{
     align-items: flex-end;
-    width: 50vw;
+    width: 70vw;
     height: 50vh;
     margin:0 auto;
     margin-top: 50px;
