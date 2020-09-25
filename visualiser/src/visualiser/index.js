@@ -27,14 +27,14 @@ function Index() {
     }
     const handleHeap = (e) => {
         const array = [0];
-        for (let i = 0; i < newArray.length; i++) {
-            array.push(newArray[i].value)
+        for (let i = 0; i < diplay.length; i++) {
+            array.push(diplay[i].value)
         }
         console.log(array)
         heapSort(array);
     }
     const handleMerge = (e) => {
-        mergeSort(newArray);
+        mergeSort(diplay);
     }
 
     return (
