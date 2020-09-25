@@ -28,8 +28,14 @@ button{
     margin: 20px;
     background-color: black;
     color: aqua;
-    border: aqua 1.5px solid;
-    border-radius: 0.5rem;
-    width: 85px;
+    border: aqua 3px solid;
+    border-radius: 1rem;
+    width: 90px;
     height: 30px;
+    font-weight: 600;
+}
+button:focus{
+    outline: none;
+    color: white;
+    border: white 3px solid;
 }
