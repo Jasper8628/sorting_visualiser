@@ -1,18 +1,35 @@
 .bar{
-    width: 5px;
-    margin-left: 1.5px;
+    width: 4px;
+    margin-left: 2px;
     background-color: aqua;
 }
+.container{
+    background-color: black;
+    height: 100vh;
+}
 .display-field{
+    justify-content: center;
     align-items: flex-end;
     width: 70vw;
     height: 50vh;
     margin:0 auto;
-    margin-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 20px;
     display: flex;
-    background-color: black;
+    -webkit-box-reflect: below 0px -webkit-gradient(linear, right top, right bottom, from(transparent), color-stop(80%, rgba(255, 255, 255, 0.15)), to(rgba(255, 255, 255, 0.3)));
+    /* -webkit-box-reflect: below 0px linear-gradient(#0001,#0003); */
 
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+button{
+    z-index: 100;
+    margin: 20px;
+    background-color: black;
+    color: aqua;
+    border: aqua 1.5px solid;
+    border-radius: 0.5rem;
+    width: 85px;
+    height: 30px;
 }

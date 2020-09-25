@@ -1,6 +1,6 @@
-export function mergeSort(array){
+export function mergeSort(array) {
     divide(array)
-    function divide (array){
+    function divide(array) {
         if (array.length < 2) {
             return array;
         } else {
@@ -10,7 +10,7 @@ export function mergeSort(array){
             return merge(divide(left), divide(right))
         }
     }
-    function merge (left, right){
+    function merge(left, right) {
         let buffer = []
         const start = left[0].index;
         const end = right[right.length - 1].index;
@@ -28,13 +28,13 @@ export function mergeSort(array){
             buffer.push(right.shift())
         }
         for (let i = start, j = 0; i < end, j < buffer.length; j++, i++) {
-            let colorDiv=document.getElementById(`${buffer[j].index}`)
+            let colorDiv = document.getElementById(`${buffer[j].index}`)
             setTimeout(() => {
-                colorDiv.style.backgroundColor='magenta'
+                colorDiv.style.backgroundColor = 'magenta'
                 setTimeout(() => {
-                    colorDiv.style.backgroundColor='aqua'
+                    colorDiv.style.backgroundColor = 'aqua'
                 }, 50);
-            }, j*50);
+            }, j * 50);
             buffer[j].index = i;
             let barDiv = document.getElementById(`${i}`);
             let height = buffer[j].value;
