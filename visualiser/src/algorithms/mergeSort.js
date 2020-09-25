@@ -29,17 +29,15 @@ export function mergeSort(array) {
         }
         for (let i = start, j = 0; i < end, j < buffer.length; j++, i++) {
             let colorDiv = document.getElementById(`${buffer[j].index}`)
+            let barDiv = document.getElementById(`${i}`);
+            let height = buffer[j].value;
+            buffer[j].index = i;
             setTimeout(() => {
                 colorDiv.style.backgroundColor = 'magenta'
                 setTimeout(() => {
                     colorDiv.style.backgroundColor = 'aqua'
+                    barDiv.style.height = `${height}px`;
                 }, 50);
-            }, j * 50);
-            buffer[j].index = i;
-            let barDiv = document.getElementById(`${i}`);
-            let height = buffer[j].value;
-            setTimeout(() => {
-                barDiv.style.height = `${height}px`;
             }, j * 50);
         }
         array.splice(start, buffer.length, ...buffer);
