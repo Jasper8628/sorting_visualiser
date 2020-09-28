@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { mergeSort } from '../algorithms/mergeSort'
 import { heapSort } from '../algorithms/heapSort'
+import { quickSort } from '../algorithms/quickSort'
 import './style.css';
 
 function Index() {
     const newArray = []
     const [diplay, setDisplay] = useState(newArray);
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 201; i++) {
         newArray[i] =
         {
             value: Math.floor(Math.random() * 200),
@@ -25,11 +26,16 @@ function Index() {
         }
         setDisplay(reset)
     }
-    const handleHeap = (e) => {
-        const array = [0];
+    const handleQuick = (e) => {
+        const array = []
         for (let i = 0; i < diplay.length; i++) {
             array.push(diplay[i].value)
         }
+        quickSort(array);
+
+    }
+    const handleHeap = (e) => {
+        const array = [0];
         console.log(array)
         heapSort(array);
     }
@@ -53,7 +59,7 @@ function Index() {
             <div className="button-container">
                 <button onClick={handleMerge}>Merge Sort</button>
                 <button onClick={handleHeap}>Heap Sort</button>
-                <button >Quick Sort</button>
+                <button onClick={handleQuick} >Quick Sort</button>
                 <button >Radix Sort</button>
                 <button onClick={handleReset}>Reset</button>
 
