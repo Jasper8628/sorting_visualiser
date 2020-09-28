@@ -38,7 +38,7 @@ export function quickSort(array) {
                     resolve(
                         divI.style.backgroundColor = "aqua",
                         divJ.style.backgroundColor = "aqua")
-                }, 30);
+                }, 50);
             }, 30);
             [array[i], array[j]] = [array[j], array[i]]
 

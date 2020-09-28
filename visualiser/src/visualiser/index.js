@@ -8,7 +8,7 @@ function Index() {
     const newArray = []
     const [diplay, setDisplay] = useState(newArray);
 
-    for (let i = 0; i < 201; i++) {
+    for (let i = 0; i < 200; i++) {
         newArray[i] =
         {
             value: Math.floor(Math.random() * 200),
@@ -36,6 +36,9 @@ function Index() {
     }
     const handleHeap = (e) => {
         const array = [0];
+        for (let i = 0; i < diplay.length; i++) {
+            array.push(diplay[i].value)
+        }
         console.log(array)
         heapSort(array);
     }
