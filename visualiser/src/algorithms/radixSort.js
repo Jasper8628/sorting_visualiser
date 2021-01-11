@@ -6,7 +6,7 @@ for (let i = 0; i < 100; i++) {
   bars.push(Math.floor(Math.random() * sampleSize))
 }
 
-const counting = (count, arr) => {
+export const radixSort = async (count, arr) => {
   const arrs = [[], [], [], [], [], [], [], [], [], []];
   let newArr = [];
   arr.forEach(element => {
@@ -46,23 +46,31 @@ const counting = (count, arr) => {
     }
   })
   arrs.forEach(element => newArr = newArr.concat(element))
-  newArr.forEach((element, index) => {
+  // const pasArr = () => {
+  const passArr = newArr.forEach((element, index) => {
     const barNew = document.getElementById(index);
     const barOld = document.getElementById(element.index)
+    newArr[index].index = index;
     setTimeout(() => {
-      barNew.style.height = element.value;
-      barOld.style.height = arr[index].value;
+      barNew.style.height = `${element.value}px`;
+      // barOld.style.height = `${arr[index].value}px`;
       barNew.style.backgroundColor = 'magenta'
       barOld.style.backgroundColor = 'magenta'
       setTimeout(() => {
-        barNew.style.backgroundColor = 'teal'
-        barOld.style.backgroundColor = 'teal'
+        barNew.style.backgroundColor = 'aqua'
+        barOld.style.backgroundColor = 'aqua'
       }, 50);
-    }, 50 * index);
+    }, 50 * index * (4 - count) * 0.3);
   })
+  //   return new Promise(resolve => {
+  //     resolve(passArr)
+  //   })
+  // }
   count--
+  // newArr = await pasArr()
   if (count >= 0) {
-    counting(count, newArr)
-  } else { console.log(newArr) }
+    radixSort(count, newArr)
+  } else { return newArr }
+  // console.log('logging: ', (4 - count), 'times', pasArr)
 }
 // counting(digit - 1, bars)

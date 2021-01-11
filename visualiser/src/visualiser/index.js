@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { mergeSort } from '../algorithms/mergeSort'
 import { heapSort } from '../algorithms/heapSort'
 import { quickSort } from '../algorithms/quickSort'
+import { radixSort } from '../algorithms/radixSort'
 import './style.css';
 
 function Index() {
@@ -16,6 +17,7 @@ function Index() {
         }
     }
     const handleReset = (e) => {
+        window.location.reload();
         const reset = []
         for (let i = 0; i < 200; i++) {
             reset[i] =
@@ -45,6 +47,9 @@ function Index() {
     const handleMerge = (e) => {
         mergeSort(diplay);
     }
+    const handleRadix = () => {
+        radixSort(3, diplay)
+    }
 
     return (
         <div className="container">
@@ -63,7 +68,7 @@ function Index() {
                 <button onClick={handleMerge}>Merge Sort</button>
                 <button onClick={handleHeap}>Heap Sort</button>
                 <button onClick={handleQuick} >Quick Sort</button>
-                <button >Radix Sort</button>
+                <button onClick={handleRadix} >Radix Sort</button>
                 <button onClick={handleReset}>Reset</button>
 
             </div>
